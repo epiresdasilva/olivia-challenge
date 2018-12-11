@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.11.0.xsd">
+    <!-- Configure the database connection here -->
+    <jdbc>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:postgresql://8bfd3125-5249-4a6f-af72-b6d5640e21b8.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:32064/oliviachallenge?sslmode=require</url>
+        <user>ibm_cloud_659b7d6e_4eab_4313_91ec_895c18d0c88d</user>
+        <password>1ddad4da246a66d2ad0f4e34d694885a4254e7a9907909a0e227868cb1d992b4</password>
+    </jdbc>
+
+    <generator>
+        <!-- The default code generator. You can override this one, to generate your own code style.
+             Supported generators:
+             - org.jooq.codegen.JavaGenerator
+             - org.jooq.codegen.ScalaGenerator
+             Defaults to org.jooq.codegen.JavaGenerator -->
+        <name>org.jooq.codegen.JavaGenerator</name>
+
+        <database>
+            <!-- The database type. The format here is:
+                 org.util.[database].[database]Database -->
+            <name>org.jooq.meta.postgres.PostgresDatabase</name>
+
+            <!-- The database schema (or in the absence of schema support, in your RDBMS this
+                 can be the owner, user, database name) to be generated -->
+            <inputSchema>public</inputSchema>
+
+            <!-- All elements that are generated from your schema
+                 (A Java regular expression. Use the pipe to separate several expressions)
+                 Watch out for case-sensitivity. Depending on your database, this might be important! -->
+            <includes>.*</includes>
+
+            <!-- All elements that are excluded from your schema
+                 (A Java regular expression. Use the pipe to separate several expressions).
+                 Excludes match before includes, i.e. excludes have a higher priority -->
+            <excludes></excludes>
+        </database>
+
+        <target>
+            <!-- The destination package of your generated classes (within the destination directory) -->
+            <packageName>br.com.evandropires.oliviachallenge.jooq</packageName>
+
+            <!-- The destination directory of your generated classes. Using Maven directory layout here -->
+            <directory>/home/evandro/IdeaProjects/olivia-challenge/src/main/java</directory>
+        </target>
+    </generator>
+</configuration>
