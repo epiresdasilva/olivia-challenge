@@ -11,6 +11,7 @@ import org.jooq.impl.DSL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by evandro on 10/12/18.
@@ -29,6 +30,20 @@ public class BetDAOImpl implements BetDAO {
                     .set(Bet.BET.BORN, new Timestamp(bet.getBorn().getTime()))
                     .set(Bet.BET.HAIRY, bet.getHairy())
                     .execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<BetDTO> listBet() {
+        try (Connection conn = ConnectionUtil.newConnection()) {
+            DSLContext create = DSL.using(conn, SQLDialect.POSTGRES);
+            return create.select()
+                    .from(Bet.BET)
+                    .fetch()
+                    .into(BetDTO.class);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

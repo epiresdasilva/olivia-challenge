@@ -2,6 +2,8 @@ package br.com.evandropires.oliviachallenge.service;
 
 import br.com.evandropires.oliviachallenge.dto.BetDTO;
 
+import java.util.List;
+
 /**
  * Created by evandro on 10/12/18.
  */
@@ -23,6 +25,10 @@ public class BetService {
 
     public void addBet(BetDTO bet) {
         getBetProvider().getDao().addBet(bet);
+    }
+
+    public List<BetDTO> listBet() {
+        return getBetProvider().getDao().listBet();
     }
 
 }

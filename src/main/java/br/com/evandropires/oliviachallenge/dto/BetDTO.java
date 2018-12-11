@@ -80,7 +80,11 @@ public class BetDTO {
         betDTO.setEmail(email);
         betDTO.setHeight(height);
         betDTO.setWeight(weight);
-        betDTO.setBorn(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(born));
+        try {
+            betDTO.setBorn(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(born));
+        } catch (ParseException e) {
+            betDTO.setBorn(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(born));
+        }
         betDTO.setHairy(hairy);
         return betDTO;
     }
