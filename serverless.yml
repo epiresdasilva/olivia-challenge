@@ -8,5 +8,7 @@ functions:
   bet:
     handler: target/olivia-challenge.jar:br.com.evandropires.oliviachallenge.function.BetFunction
     name: oliviachallenge/bet
+    events:
+      - http: POST /bet
 plugins:
   - "serverless-openwhisk"
